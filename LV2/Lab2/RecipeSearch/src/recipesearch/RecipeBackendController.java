@@ -1,4 +1,4 @@
-package recipesearch.resources;
+package recipesearch;
 
 import se.chalmers.ait.dat215.lab2.Recipe;
 
