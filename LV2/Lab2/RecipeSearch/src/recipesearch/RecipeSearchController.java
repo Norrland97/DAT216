@@ -55,6 +55,8 @@ public class RecipeSearchController implements Initializable {
             public void changed(ObservableValue observable, Object oldValue, Object newValue) {
                 RBC.setMainIngredient(newValue.toString());
                 updateRecipeList();
+                System.out.print(newValue.toString());
+
             }
         });
 
