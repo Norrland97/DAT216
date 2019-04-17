@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Slider?>
@@ -14,11 +15,10 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="500.0" maxWidth="800.0" minHeight="500.0" minWidth="800.0" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="recipesearch.RecipeSearchController">
+<AnchorPane maxHeight="500.0" maxWidth="800.0" minHeight="500.0" minWidth="800.0" prefHeight="500.0" prefWidth="800.0" stylesheets="@recipe_search.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="recipesearch.RecipeSearchController">
    <children>
       <StackPane layoutX="114.0" layoutY="66.0" prefHeight="150.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <AnchorPane fx:id="recipeDetailPanel" prefHeight="397.0" prefWidth="647.0" style="-fx-background-color: #ff0000;" />
             <SplitPane fx:id="searchPanel" dividerPositions="0.35" prefHeight="160.0" prefWidth="200.0">
               <items>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
@@ -28,60 +28,52 @@
                               <Image url="@../../../../../../../../Desktop/Lab2/RecipeSearch/src/recipesearch/resources/logo.png" />
                            </image>
                         </ImageView>
-                        <ComboBox fx:id="mainIngredient" layoutX="112.0" layoutY="186.0" prefWidth="150.0" style="-fx-background-image: C:\Users\Administratör\Documents\GitHub\DAT216\LV2\Lab2\RecipeSearch\src\recipesearch\resources/;" AnchorPane.leftAnchor="112.0" />
-                        <ComboBox layoutX="112.0" layoutY="224.0" prefWidth="150.0" AnchorPane.leftAnchor="112.0" />
-                        <RadioButton layoutX="123.0" layoutY="279.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="105.0" text="Lätt" AnchorPane.leftAnchor="112.0">
+                        <ComboBox fx:id="mainIngredient" layoutX="112.0" layoutY="186.0" prefWidth="150.0" style="-fx-background-image: C:\Users\Administratör\Documents\GitHub\DAT216\LV2\Lab2\RecipeSearch\src\recipesearch\resources/;" styleClass="text-bigger" AnchorPane.leftAnchor="112.0" />
+                        <ComboBox fx:id="cousine" layoutX="112.0" layoutY="224.0" prefWidth="150.0" styleClass="text-smaller" AnchorPane.leftAnchor="112.0" />
+                        <RadioButton fx:id="easy" layoutX="123.0" layoutY="279.0" mnemonicParsing="false" prefHeight="17.0" styleClass="text-smaller" text="Lätt" AnchorPane.leftAnchor="112.0" AnchorPane.rightAnchor="0.0">
                            <graphic>
                               <ImageView fitHeight="18.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../../../../../../../../Desktop/Lab2/RecipeSearch/src/recipesearch/resources/icon_difficulty_easy.png" />
+                                    <Image url="@resources/icon_difficulty_easy.png" />
                                  </image>
                               </ImageView>
                            </graphic></RadioButton>
-                        <Spinner layoutX="123.0" layoutY="362.0" prefHeight="25.0" prefWidth="62.0" AnchorPane.leftAnchor="112.0" />
-                        <Slider layoutX="83.0" layoutY="430.0" AnchorPane.leftAnchor="112.0" />
-                        <Text fill="#fc2b2b" layoutX="98.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RECEPT" wrappingWidth="178.146484375" AnchorPane.leftAnchor="98.0" AnchorPane.topAnchor="14.3212890625">
-                           <font>
-                              <Font name="Broadway" size="38.0" />
-                           </font>
-                        </Text>
-                        <Text layoutX="179.0" layoutY="81.0" rotate="-37.9" strokeType="OUTSIDE" strokeWidth="0.0" text="Sök" AnchorPane.bottomAnchor="408.85205078125" AnchorPane.leftAnchor="179.0" AnchorPane.rightAnchor="35.77294921875" AnchorPane.topAnchor="43.783203125">
-                           <font>
-                              <Font name="Century Gothic" size="37.0" />
-                           </font>
-                        </Text>
+                        <Spinner fx:id="maxPriceSpinner" layoutX="123.0" layoutY="362.0" prefHeight="25.0" prefWidth="62.0" AnchorPane.leftAnchor="112.0" />
+                        <Slider fx:id="maxTimeSlider" layoutX="110.0" layoutY="410.0" majorTickUnit="10.0" max="150.0" min="10.0" minorTickCount="0" showTickLabels="true" showTickMarks="true" snapToTicks="true" AnchorPane.leftAnchor="110.0" />
                         <Text layoutX="33.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="HItta ett recept genom att ändra i inställningarna nedanför!" textAlignment="CENTER" wrappingWidth="209.13671875" AnchorPane.leftAnchor="33.0" AnchorPane.rightAnchor="33.86328125" />
-                        <Text layoutX="9.0" layoutY="203.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Huvudingrediens:" AnchorPane.rightAnchor="174.0" />
-                        <Text layoutX="82.0" layoutY="241.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kök:" AnchorPane.rightAnchor="174.0" />
-                        <RadioButton layoutX="123.0" layoutY="306.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="125.0" text="Mellan" AnchorPane.leftAnchor="112.0">
+                        <Text layoutX="9.0" layoutY="203.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-normal" text="Huvudingrediens:" AnchorPane.rightAnchor="174.0" />
+                        <Text layoutX="82.0" layoutY="241.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-normal" text="Kök:" AnchorPane.rightAnchor="174.0" />
+                        <RadioButton fx:id="medium" layoutX="123.0" layoutY="306.0" mnemonicParsing="false" prefHeight="18.0" styleClass="text-smaller" text="Mellan" AnchorPane.leftAnchor="112.0" AnchorPane.rightAnchor="0.0">
                            <graphic>
                               <ImageView fitHeight="18.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../../../../../../../../Desktop/Lab2/RecipeSearch/src/recipesearch/resources/icon_difficulty_medium.png" />
+                                    <Image url="@resources/icon_difficulty_medium.png" />
                                  </image>
                               </ImageView>
                            </graphic>
                         </RadioButton>
-                        <RadioButton layoutX="123.0" layoutY="330.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="131.0" text="Svår" AnchorPane.leftAnchor="112.0">
+                        <RadioButton fx:id="hard" layoutX="123.0" layoutY="330.0" mnemonicParsing="false" prefHeight="18.0" styleClass="text-smaller" text="Svår" AnchorPane.leftAnchor="112.0" AnchorPane.rightAnchor="0.0">
                            <graphic>
                               <ImageView fitHeight="18.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../../../../../../../../Desktop/Lab2/RecipeSearch/src/recipesearch/resources/icon_difficulty_hard.png" />
+                                    <Image url="@resources/icon_difficulty_hard.png" />
                                  </image>
                               </ImageView>
                            </graphic>
                         </RadioButton>
-                        <RadioButton layoutX="123.0" layoutY="256.0" mnemonicParsing="false" prefWidth="87.0" text="Alla" AnchorPane.leftAnchor="112.0" />
-                        <Text layoutX="33.0" layoutY="269.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Svårighetsgrad:" AnchorPane.rightAnchor="174.0" />
-                        <Text layoutX="62.0" layoutY="379.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Maxpris:" AnchorPane.rightAnchor="174.0" />
+                        <RadioButton fx:id="all" layoutX="123.0" layoutY="256.0" mnemonicParsing="false" styleClass="text-smaller" text="Alla" AnchorPane.leftAnchor="112.0" AnchorPane.rightAnchor="0.0" />
+                        <Text layoutX="33.0" layoutY="269.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-normal" text="Svårighetsgrad:" AnchorPane.rightAnchor="174.0" />
+                        <Text layoutX="62.0" layoutY="379.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-normal" text="Maxpris:" AnchorPane.rightAnchor="174.0" />
                         <Text layoutX="187.0" layoutY="379.0" strokeType="OUTSIDE" strokeWidth="0.0" text="kr" />
-                        <Text layoutX="55.0" layoutY="442.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Maxpris:" AnchorPane.rightAnchor="174.0" />
+                        <Text layoutX="59.0" layoutY="433.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-normal" text="Maxtid:" AnchorPane.rightAnchor="177.970703125" />
                         <ImageView fitHeight="25.0" fitWidth="23.0" layoutX="153.0" layoutY="459.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../../../../../../../Desktop/Lab2/RecipeSearch/src/recipesearch/resources/icon_time.png" />
                            </image>
                         </ImageView>
                         <Text layoutX="180.0" layoutY="475.0" strokeType="OUTSIDE" strokeWidth="0.0" text="50 minuter" />
+                        <Label layoutX="69.0" layoutY="11.0" styleClass="logo" text="RECEPT" />
+                        <Label layoutX="165.0" layoutY="48.0" styleClass="logo-twirl" text="SÖK" />
                      </children>
                   </AnchorPane>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
@@ -94,6 +86,62 @@
                      </children></AnchorPane>
               </items>
             </SplitPane>
+            <AnchorPane fx:id="recipeDetailPanel" prefHeight="200.0" prefWidth="200.0" styleClass="anchorpane">
+               <children>
+                  <AnchorPane layoutX="17.0" layoutY="5.0" onMouseClicked="#mouseTrap" prefHeight="450.0" prefWidth="700.0" styleClass="text-area" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="30.0">
+                     <children>
+                        <ImageView fx:id="recipeDetailImage" fitHeight="150.0" fitWidth="200.0" layoutX="14.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../recipes/chicken-tikka-masala.jpg" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="recipeDetailLabel" alignment="TOP_LEFT" layoutX="254.0" layoutY="224.0" prefHeight="188.0" prefWidth="396.0" styleClass="text-area" text="Label" wrapText="true" />
+                        <ImageView fx:id="cuisineImage" fitHeight="57.0" fitWidth="68.0" layoutX="135.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@resources/icon_flag_sweden.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="mainIngredientImage" fitHeight="32.0" fitWidth="42.0" layoutX="252.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@resources/icon_main_fish.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="difficultyImage" fitHeight="38.0" fitWidth="93.0" layoutX="307.0" layoutY="76.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@resources/icon_difficulty_medium.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="32.0" fitWidth="42.0" layoutX="424.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@resources/icon_time.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="ingredienseLabel" alignment="TOP_LEFT" layoutX="18.0" layoutY="278.0" prefHeight="207.0" prefWidth="119.0" styleClass="text-area" text="Ingredienser" wrapText="true" />
+                        <Label fx:id="timeLabel" layoutX="462.0" layoutY="83.0" text="20" />
+                        <Label layoutX="481.0" layoutY="83.0" styleClass="text-area" text="minuter" />
+                        <Label fx:id="priceLabel" layoutX="548.0" layoutY="83.0" text="40" />
+                        <Label layoutX="561.0" layoutY="83.0" styleClass="text-area" text="kr" />
+                        <Label fx:id="titleLabel" layoutX="252.0" layoutY="25.0" prefHeight="32.0" prefWidth="396.0" style="-fx-font-weight: bold;" styleClass="text-area" text="TITLE" />
+                        <Label fx:id="descriptionLabel" alignment="TOP_LEFT" layoutX="254.0" layoutY="143.0" prefHeight="48.0" prefWidth="396.0" styleClass="text-area" text="description" wrapText="true" />
+                        <Label layoutX="18.0" layoutY="261.0" style="-fx-font-weight: bold;" text="Ingredienser:">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="254.0" layoutY="197.0" text="Tillagning:">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <ImageView fx:id="closeImageView" fitHeight="27.0" fitWidth="26.0" layoutX="684.0" layoutY="16.0" onMouseClicked="#closeRecipeView" onMouseEntered="#closeButtonMouseEntered" onMouseExited="#closeButtonMouseExited" onMousePressed="#closeButtonMousePressed" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@resources/icon_close.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
          </children>
       </StackPane>
    </children>

@@ -1,2 +1,33 @@
+.text-normal{
+     -fx-font-size: 13px;
+     -fx-font-family: "Arial";
+ }
+.text-smaller{
+     -fx-font-size: 11px;
+     -fx-font-family: "Arial";
+}
+.text-bigger{
+     -fx-font-size: 15px;
+     -fx-font-family: "Arial";
+}
 
+.logo{
+     -fx-font-size: 38px;
+     -fx-font-family: "Elephant";
+}
+.logo-twirl{
+     -fx-font-size: 54px;
+     -fx-font-family: "Impact";
+     -fx-text-fill:#FFAC33;
+     -fx-rotate:-20;
+}
+.anchorpane{
+    -fx-background-color:rgba(0, 0, 0, 0.75);
+}
+.text-area .content {
+   -fx-background-color: -fx-background;
+}
 
+.text-area  {
+    -fx-background-color: -fx-background;
+}
